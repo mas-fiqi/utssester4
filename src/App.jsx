@@ -1,64 +1,86 @@
-import {StyleSheet, Text, View, FlatList} from 'react-native';
-import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Home from './screens/Home';
-import About from './screens/About';
-import Profile from './screens/Profile';
+import React, {Component} from 'react';
+import {View, StatusBar, Text} from 'react-native';
 
-const Stack = createNativeStackNavigator();
-const Tabs = createBottomTabNavigator();
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasil: 0,
+      hitung: 0,
+    };
+  } 
+  render() {
+    return (
+      <View style={{flex: 1, backgroundColor: '#212121'}}>
+        <StatusBar backgroundColor="blue" barstyle="light-content" />
 
-const MenuTab = () => {
-  return (
-    <Tabs.Navigator screenOptions={{tabBarActiveTintColor: 'green'}}>
-      <Tabs.Screen
-        name="Home"
-        component={Home}
-        options={{
-          tabBarIcon: ({size, color}) => (
-            <MaterialCommunityIcons name="home" size={size} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="About"
-        component={About}
-        options={{
-          tabBarIcon: ({size, color}) => (
-            <MaterialCommunityIcons name="cog" size={size} color={color} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="Profile"
-        component={Profile}
-        options={{
-          tabBarIcon: ({size, color}) => (
-            <MaterialCommunityIcons name="group" size={size} color={color} />
-          ),
-        }}
-      />
-    </Tabs.Navigator>
-  );
-};
+        <View style={{flexDirection: 'row'}}>
+          <View style={{flex: 1, justifyContent:'centen', justifyContent: 'center', padding: 10, backgroundColor: 'crimson', margin: 10}}>
+            <Text style={{color:'##ffffff', fontSize: 24, textAlign: 'center'}}>HAPUS</Text>
+          </View>
+        </View>
 
-function App() {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Tab"
-          component={MenuTab}
-          options={{headerShown: false}}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+
+
+        <View style={{flexDirection: 'row'}}>
+          <View style={{flex: 1, justifyContent:'centen', justifyContent: 'center', padding: 10, backgroundColor: 'crimson', margin: 10}}>
+            <Text style={{color:'##ffffff', fontSize: 24, textAlign: 'center'}}>(</Text>
+          </View>
+          <View style={{flex: 1, justifyContent:'centen', justifyContent: 'center', padding: 10, backgroundColor: 'crimson', margin: 10}}>
+            <Text style={{color:'#ffffff', fontSize: 24, textAlign: 'center'}}>)</Text>
+          </View>
+          <View style={{ flex: 1, justifyContent:'centen', justifyContent: 'center', padding: 10, backgroundColor: 'crimson', margin: 10}}>
+            <Text style={{color:'#ffffff', fontSize: 24, textAlign: 'center'}}>/</Text>
+          </View>
+          <View style={{ flex: 1, justifyContent:'centen', justifyContent: 'center', padding: 10, backgroundColor: 'crimson', margin: 10}}>
+            <Text style={{color:'#ffffff', fontSize: 24, textAlign: 'center'}}>x</Text>
+          </View>
+        </View>
+
+        <View style={{flexDirection: 'row'}}>
+          <View style={{flex: 1, justifyContent:'centen', justifyContent: 'center', padding: 10, backgroundColor: 'crimson', margin: 10}}>
+            <Text style={{color:'##ffffff', fontSize: 24, textAlign: 'center'}}>7</Text>
+          </View>
+          <View style={{flex: 1, justifyContent:'centen', justifyContent: 'center', padding: 10, backgroundColor: '', margin: 10}}>
+            <Text style={{color:'#ffffff', fontSize: 24, textAlign: 'center'}}>8</Text>
+          </View>
+          <View style={{ flex: 1, justifyContent:'centen', justifyContent: 'center', padding: 10, backgroundColor: 'crimson', margin: 10}}>
+            <Text style={{color:'#ffffff', fontSize: 24, textAlign: 'center'}}>9</Text>
+          </View>
+          <View style={{ flex: 1, justifyContent:'centen', justifyContent: 'center', padding: 10, backgroundColor: '', margin: 10}}>
+            <Text style={{color:'#ffffff', fontSize: 24, textAlign: 'center'}}>+</Text>
+          </View>
+        </View>
+        <View style={{flexDirection: 'row'}}>
+          <View style={{flex: 1, justifyContent:'centen', justifyContent: 'center', padding: 10, backgroundColor: '', margin: 10}}>
+            <Text style={{color:'##ffffff', fontSize: 24, textAlign: 'center'}}>4</Text>
+          </View>
+          <View style={{flex: 1, justifyContent:'centen', justifyContent: 'center', padding: 10, backgroundColor: 'crimson', margin: 10}}>
+            <Text style={{color:'#ffffff', fontSize: 24, textAlign: 'center'}}>5</Text>
+          </View>
+          <View style={{ flex: 1, justifyContent:'centen', justifyContent: 'center', padding: 10, backgroundColor: '', margin: 10}}>
+            <Text style={{color:'#ffffff', fontSize: 24, textAlign: 'center'}}>6</Text>
+          </View>
+          <View style={{ flex: 1, justifyContent:'centen', justifyContent: 'center', padding: 10, backgroundColor: 'crimson', margin: 10}}>
+            <Text style={{color:'#ffffff', fontSize: 24, textAlign: 'center'}}>-</Text>
+          </View>
+        </View>
+        <View style={{flexDirection: 'row'}}>
+          <View style={{flex: 1, justifyContent:'centen', justifyContent: 'center', padding: 10, backgroundColor: 'crimson', margin: 10}}>
+            <Text style={{color:'##ffffff', fontSize: 24, textAlign: 'center'}}>1</Text>
+          </View>
+          <View style={{flex: 1, justifyContent:'centen', justifyContent: 'center', padding: 10, backgroundColor: '', margin: 10}}>
+            <Text style={{color:'#ffffff', fontSize: 24, textAlign: 'center'}}>2</Text>
+          </View>
+          <View style={{ flex: 1, justifyContent:'centen', justifyContent: 'center', padding: 10, backgroundColor: 'crimson', margin: 10}}>
+            <Text style={{color:'#ffffff', fontSize: 24, textAlign: 'center'}}>3</Text>
+          </View>
+          <View style={{ flex: 1, justifyContent:'centen', justifyContent: 'center', padding: 10, backgroundColor: '', margin: 10}}>
+            <Text style={{color:'#ffffff', fontSize: 24, textAlign: 'center'}}>=</Text>
+          </View>
+        </View>
+      </View>
+    );
+  }
 }
-
 export default App;
-
-const style = StyleSheet.create({});
