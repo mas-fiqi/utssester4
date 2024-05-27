@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react';
 import {View, StatusBar, Text, TouchableOpacity} from 'react-native';
 import Tambahan from './screens/Tambahan';
@@ -20,19 +19,36 @@ class App extends Component {
     }
   };
 
+  hapusAngka = () => {
+    let {hitung} = this.state;
+    this.setState({hitung: hitung.slice(0, -1)});
+  };
+
   hitungHasil = () => {
     let hasil = eval(this.state.hitung);
     this.setState({hitung: hasil});
   };
+
   render() {
     return (
-      <View style={{flex: 1, backgroundColor:'#e1bb80'}}>
+      <View style={{flex: 1, backgroundColor: '#e1bb80'}}>
         <StatusBar backgroundColor="#e1bb80" barstyle="light-content" />
 
         <View
-          style={{flex: 0.9, backgroundColor: '#',marginHorizontal: 10, padding: 10, borderRadius: 45 }}>
+          style={{
+            flex: 0.9,
+            backgroundColor: '#',
+            marginHorizontal: 10,
+            padding: 10,
+            borderRadius: 45,
+          }}>
           <Text
-            style={{ color: '#778da9', fontSize: 70, textAlign: 'right', color: '#ffffff', }}>
+            style={{
+              color: '#778da9',
+              fontSize: 70,
+              textAlign: 'right',
+              color: '#ffffff',
+            }}>
             {this.state.hitung}
           </Text>
         </View>
@@ -41,16 +57,27 @@ class App extends Component {
           <TouchableOpacity
             style={{
               flex: 1,
-              // justifyContent: 'centen',
-              hinght: 1,
               padding: 10,
               backgroundColor: '#352208',
               margin: 10,
-              borderRadius: 1045
+              borderRadius: 1045,
+            }}
+            onPress={this.hapusAngka}>
+            <Text style={{color: '#ffffff', fontSize: 24, textAlign: 'center'}}>
+              Backspace
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              flex: 1,
+              padding: 10,
+              backgroundColor: '#352208',
+              margin: 10,
+              borderRadius: 1045,
             }}
             onPress={() => this.setState({hitung: ''})}>
             <Text style={{color: '#ffffff', fontSize: 24, textAlign: 'center'}}>
-              HAPUS
+              Delete
             </Text>
           </TouchableOpacity>
         </View>
@@ -59,17 +86,15 @@ class App extends Component {
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
               backgroundColor: '#bc6c25',
               margin: 10,
-              borderRadius: 20
+              borderRadius: 20,
             }}
             onPress={() => this.masukanAngka('(')}>
             <Text
               style={{
-                color: '#',
                 fontSize: 24,
                 textAlign: 'center',
                 color: '#ffffff',
@@ -80,12 +105,11 @@ class App extends Component {
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
               backgroundColor: '#bc6c25',
               margin: 10,
-              borderRadius: 20
+              borderRadius: 20,
             }}
             onPress={() => this.masukanAngka(')')}>
             <Text style={{color: '#ffffff', fontSize: 24, textAlign: 'center'}}>
@@ -95,12 +119,11 @@ class App extends Component {
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
               backgroundColor: '#bc6c25',
               margin: 10,
-              borderRadius: 20
+              borderRadius: 20,
             }}
             onPress={() => this.masukanAngka('%')}>
             <Text style={{color: '#ffffff', fontSize: 24, textAlign: 'center'}}>
@@ -110,12 +133,11 @@ class App extends Component {
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
               backgroundColor: '#bc6c25',
               margin: 10,
-              borderRadius: 20
+              borderRadius: 20,
             }}
             onPress={() => this.masukanAngka('*')}>
             <Text style={{color: '#ffffff', fontSize: 24, textAlign: 'center'}}>
@@ -128,28 +150,25 @@ class App extends Component {
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
               backgroundColor: '#020202',
               margin: 10,
-              borderRadius: 10
+              borderRadius: 10,
             }}
             onPress={() => this.masukanAngka(7)}>
-            <Text
-              style={{color: '#ffffff', fontSize: 24, textAlign: 'center'}}>
+            <Text style={{color: '#ffffff', fontSize: 24, textAlign: 'center'}}>
               7
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
               backgroundColor: '#efd6ac',
               margin: 10,
-              borderRadius: 10
+              borderRadius: 10,
             }}
             onPress={() => this.masukanAngka(8)}>
             <Text style={{color: '#020202', fontSize: 24, textAlign: 'center'}}>
@@ -159,12 +178,11 @@ class App extends Component {
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
               backgroundColor: '#020202',
               margin: 10,
-              borderRadius: 10
+              borderRadius: 10,
             }}
             onPress={() => this.masukanAngka(9)}>
             <Text style={{color: '#ffffff', fontSize: 24, textAlign: 'center'}}>
@@ -174,12 +192,11 @@ class App extends Component {
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
               backgroundColor: '#bc6c25',
               margin: 10,
-              borderRadius: 20
+              borderRadius: 20,
             }}
             onPress={() => this.masukanAngka('+')}>
             <Text style={{color: '#ffffff', fontSize: 24, textAlign: 'center'}}>
@@ -191,28 +208,25 @@ class App extends Component {
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
               backgroundColor: '#efd6ac',
               margin: 10,
-              borderRadius: 10
+              borderRadius: 10,
             }}
             onPress={() => this.masukanAngka(4)}>
-            <Text
-              style={{color: '#020202', fontSize: 24, textAlign: 'center'}}>
+            <Text style={{color: '#020202', fontSize: 24, textAlign: 'center'}}>
               4
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
               backgroundColor: '#020202',
               margin: 10,
-              borderRadius: 10
+              borderRadius: 10,
             }}
             onPress={() => this.masukanAngka(5)}>
             <Text style={{color: '#ffffff', fontSize: 24, textAlign: 'center'}}>
@@ -222,12 +236,11 @@ class App extends Component {
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
               backgroundColor: '#efd6ac',
               margin: 10,
-              borderRadius: 10
+              borderRadius: 10,
             }}
             onPress={() => this.masukanAngka(6)}>
             <Text style={{color: '#020202', fontSize: 24, textAlign: 'center'}}>
@@ -237,12 +250,11 @@ class App extends Component {
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
               backgroundColor: '#bc6c25',
               margin: 10,
-              borderRadius: 20
+              borderRadius: 20,
             }}
             onPress={() => this.masukanAngka('-')}>
             <Text style={{color: '#ffffff', fontSize: 24, textAlign: 'center'}}>
@@ -254,29 +266,25 @@ class App extends Component {
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
               backgroundColor: '#020202',
               margin: 10,
-              borderRadius: 10
+              borderRadius: 10,
             }}
             onPress={() => this.masukanAngka(1)}>
-            <Text
-              style={{color: '#ffffff', fontSize: 24, textAlign: 'center'}}>
+            <Text style={{color: '#ffffff', fontSize: 24, textAlign: 'center'}}>
               1
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
               backgroundColor: '#efd6ac',
               margin: 10,
-              borderRadius: 10
-              
+              borderRadius: 10,
             }}
             onPress={() => this.masukanAngka(2)}>
             <Text style={{color: '#020202', fontSize: 24, textAlign: 'center'}}>
@@ -286,12 +294,11 @@ class App extends Component {
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
               backgroundColor: '#020202',
               margin: 10,
-              borderRadius: 10
+              borderRadius: 10,
             }}
             onPress={() => this.masukanAngka(3)}>
             <Text style={{color: '#ffffff', fontSize: 24, textAlign: 'center'}}>
@@ -301,12 +308,11 @@ class App extends Component {
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
               backgroundColor: '#bc6c25',
               margin: 10,
-              borderRadius: 20
+              borderRadius: 20,
             }}
             onPress={() => this.masukanAngka('/')}>
             <Text style={{color: '#ffffff', fontSize: 24, textAlign: 'center'}}>
@@ -318,28 +324,25 @@ class App extends Component {
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
               backgroundColor: '#bc6c25',
               margin: 10,
-              borderRadius: 20
+              borderRadius: 20,
             }}
             onPress={() => this.masukanAngka('.')}>
-            <Text
-              style={{color: '#ffffff', fontSize: 24, textAlign: 'center'}}>
+            <Text style={{color: '#ffffff', fontSize: 24, textAlign: 'center'}}>
               .
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
               backgroundColor: '#efd6ac',
               margin: 10,
-              borderRadius: 10
+              borderRadius: 10,
             }}
             onPress={() => this.masukanAngka(0)}>
             <Text style={{color: '#020202', fontSize: 24, textAlign: 'center'}}>
@@ -349,12 +352,11 @@ class App extends Component {
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
               backgroundColor: '#bc6c25',
               margin: 10,
-              borderRadius: 20
+              borderRadius: 20,
             }}
             onPress={() => this.masukanAngka('00')}>
             <Text style={{color: '#ffffff', fontSize: 24, textAlign: 'center'}}>
@@ -364,12 +366,11 @@ class App extends Component {
           <TouchableOpacity
             style={{
               flex: 1,
-              justifyContent: 'centen',
               justifyContent: 'center',
               padding: 10,
-              backgroundColor: '#020202',
+              backgroundColor: '#bc6c25',
               margin: 10,
-              borderRadius: 20
+              borderRadius: 20,
             }}
             onPress={() => this.hitungHasil('=')}>
             <Text style={{color: '#ffffff', fontSize: 24, textAlign: 'center'}}>
@@ -382,5 +383,3 @@ class App extends Component {
   }
 }
 export default App;
-
-
